@@ -1,0 +1,169 @@
+.admin-tabbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.admin-tabbar .admin-tab {
+  min-width: 130px;
+}
+
+.admin-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.admin-panel {
+  display: none;
+  margin-top: 28px;
+}
+
+.admin-panel.active {
+  display: block;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 22px;
+}
+
+.admin-panel-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width:1100px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-table {
+    min-width: 100%;
+  }
+  .admin-panel-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .admin-panel-bar .field {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width:760px) {
+  .admin-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-table {
+    font-size: 14px;
+  }
+  .admin-table th,
+  .admin-table td {
+    padding: 10px 8px;
+  }
+  .admin-form-card,
+  .summary-card {
+    padding: 18px;
+  }
+  .admin-tabbar {
+    gap: 8px;
+  }
+  .admin-tabbar .admin-tab {
+    min-width: unset;
+    flex: 1;
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width:760px) {
+  .admin-tabbar {
+    justify-content: stretch;
+  }
+  .admin-tabbar .admin-tab {
+    flex: 1;
+    min-width: 0;
+  }
+  .admin-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-table th,
+  .admin-table td {
+    padding: 12px 10px;
+  }
+}
+
+.admin-panel-bar .field {
+  flex: 1;
+  min-width: 220px;
+}
+
+.admin-form-card,
+.summary-card {
+  background: var(--paper);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.admin-form-card h3,
+.summary-card h3 {
+  margin-top: 0;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+@media (max-width: 900px) {
+  .admin-table {
+    min-width: 0;
+  }
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--ink-10);
+  text-align: left;
+}
+
+.admin-table th {
+  color: var(--ink-60);
+  font-weight: 600;
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.admin-panel button.active,
+.admin-tabbar .admin-tab.active {
+  border-color: var(--blue-60);
+  color: var(--blue-60);
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(18, 19, 25, 0.95);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
